@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <Button /> without throwing 1`] = `
+<button
+  className="button"
+  onClick={[Function]}
+  style={
+    Object {
+      "color": "#333",
+      "fontSize": "14px",
+    }
+  }
+>
+   I am a Button
+</button>
+`;

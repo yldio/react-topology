@@ -1,0 +1,58 @@
+{
+  "name": "react-styleguidist-boilerplate",
+  "version": "0.1.0",
+  "author": "Sara Vieira",
+  "license": "MIT",
+  "dependencies": {
+    "dog-names": "^1.0.2",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14"
+  },
+  "scripts": {
+    "start": "styleguidist server",
+    "build": "styleguidist build",
+    "lint": "eslint src",
+    "jest": "jest --env=jsdom",
+    "test": "run-s lint jest",
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "enzyme": "^3.0.0",
+    "eslint": "^4.7.2",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.3.0",
+    "husky": "^0.14.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^21.1.0",
+    "lint-staged": "^4.2.2",
+    "npm-run-all": "^4.1.1",
+    "prettier": "^1.7.0",
+    "react-styleguidist": "^6.0.25",
+    "react-test-renderer": "^16.0.0",
+    "style-loader": "^0.19.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|sass|scss|postcss)$": "identity-obj-proxy"
+    },
+    "collectCoverage": true
+  }
+}

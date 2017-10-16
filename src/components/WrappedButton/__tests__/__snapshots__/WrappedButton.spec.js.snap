@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <WrappedButton /> without throwing 1`] = `
+<button
+  className="wrapped-button"
+  style={
+    Object {
+      "color": "#333",
+      "fontSize": "14px",
+    }
+  }
+>
+   I am a WrappedButton
+</button>
+`;

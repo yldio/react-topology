@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <Placeholder /> with invalid props 1`] = `
+<img
+  className="placeholder"
+  height={150}
+  src={undefined}
+  width={150}
+/>
+`;
+
+exports[`renders <Placeholder /> with props 1`] = `
+<img
+  className="placeholder"
+  height={150}
+  src="http://placeimg.com/150/150/animals"
+  width={150}
+/>
+`;
+
+exports[`renders <Placeholder /> without throwing 1`] = `
+<img
+  className="placeholder"
+  height={150}
+  src="http://placeimg.com/150/150/animals"
+  width={150}
+/>
+`;

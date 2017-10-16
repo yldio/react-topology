@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <RandomButton /> with variants 1`] = `
+<button
+  className="random-button"
+  onClick={[Function]}
+>
+  test
+</button>
+`;
+
+exports[`renders <RandomButton /> without throwing 1`] = `
+<button
+  className="random-button"
+  onClick={[Function]}
+/>
+`;

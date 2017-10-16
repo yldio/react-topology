@@ -1,4 +1,11 @@
-```
+import React from 'react';
+import renderer from 'react-test-renderer';
+
+import Topology from '../';
+
+it('renders <Topology /> without throwing', () => {
+  const tree = renderer
+    .create(
 <Topology services=
 {[
     {
@@ -91,4 +98,7 @@
     }
   ]
 } />
-```
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});

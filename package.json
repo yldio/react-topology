@@ -1,7 +1,7 @@
 {
-  "name": "react-styleguidist-boilerplate",
+  "name": "react-topology",
   "version": "0.1.0",
-  "author": "Sara Vieira",
+  "author": "YLD",
   "license": "MIT",
   "dependencies": {
     "chart.js": "^2.7.0",
@@ -27,21 +27,30 @@
   },
   "scripts": {
     "start": "styleguidist server",
-    "build": "styleguidist build",
+    "styleguide:build": "styleguidist build",
+    "build": "NODE_ENV=production babel src --out-file lib/index.js --ignore spec.js,test.js",
     "lint": "eslint src",
     "jest": "jest --env=jsdom",
-    "test": "run-s lint jest",
-    "eject": "react-scripts eject",
+    "test": "run-s lint jest size",
+    "size": "bundlesize",
     "precommit": "lint-staged"
   },
+  "bundlesize": [
+    {
+      "path": "./lib/index.js",
+      "maxSize": "6.1 kB"
+    }
+  ],
   "devDependencies": {
     "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
+    "babel-preset-babili": "^0.1.4",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-joyent-portal": "^3.2.0",
     "babel-preset-stage-0": "^6.24.1",
+    "bundlesize": "^0.15.3",
     "css-loader": "^0.28.7",
     "enzyme": "^3.0.0",
     "eslint": "^4.7.2",
@@ -69,7 +78,7 @@
     "url-loader": "^0.6.2"
   },
   "lint-staged": {
-    "*.js": [
+    "src/**/*.js": [
       "eslint --fix",
       "git add"
     ]

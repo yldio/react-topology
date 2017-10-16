@@ -44,7 +44,7 @@ const GraphNode = ({
       }
     };
 
-    onQuickActions(evt, d);
+    if (onQuickActions) onQuickActions(evt, d);
   };
 
   const onTitleClick = evt => onNodeTitleClick(evt, { service: data });

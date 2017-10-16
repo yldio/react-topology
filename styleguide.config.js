@@ -3,7 +3,6 @@ const { defaultHandlers } = require('react-docgen');
 const dnHandler = require('react-docgen-displayname-handler');
 const path = require('path');
 
-
 module.exports = {
   components: 'src/index.js',
   defaultExample: true,

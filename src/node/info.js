@@ -2,10 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import is, { isNot } from 'styled-is';
 import PropTypes from 'prop-types';
-import InstancesIcon from './icon-instances.svg';
 import { Point } from '../prop-types';
 import { GraphText } from './shapes';
-import { HealthyIcon, theme } from 'joyent-ui-toolkit'
+import { HealthyIcon, theme, InstancesIcon } from 'joyent-ui-toolkit';
 
 const StyledInstancesIcon = styled(InstancesIcon)`
   fill: ${theme.white};
@@ -16,6 +15,18 @@ const StyledInstancesIcon = styled(InstancesIcon)`
 
   ${isNot('active')`
     fill: ${theme.secondary};
+  `};
+`;
+
+const StyledHealthyIcon = styled(HealthyIcon)`
+  fill: ${theme.orange};
+
+  ${is('healthy')`
+    fill: ${theme.green};
+  `};
+
+  ${is('unhealthy')`
+    fill: ${theme.red};
   `};
 `;
 
@@ -46,7 +57,7 @@ const GraphNodeInfo = ({ data, pos }) => {
   );
 
   const healthy = (
-    <HealthyIcon
+    <StyledHealthyIcon
       healthy={
         instancesHealthy && instancesHealthy.total === instancesHealthy.healthy
           ? 'HEALTHY'

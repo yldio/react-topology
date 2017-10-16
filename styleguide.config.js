@@ -1,18 +1,32 @@
 module.exports = {
-  components: "src/components/**/[A-Z]*.js",
+  components: 'src/index.js',
   defaultExample: true,
-  title: "Styleguidist Boilerplate",
+  title: 'React Topology',
+  showUsage: true,
+  showSidebar: false,
   webpackConfig: {
     module: {
       rules: [
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loader: "babel-loader"
+          loader: 'babel-loader'
+        },
+        {
+          test: /\.svg$/,
+          loader: 'svg-inline-loader'
         },
         {
           test: /\.css$/,
-          loader: "style-loader!css-loader"
+          use: ['style-loader', 'css-loader']
+        },
+        {
+          test: /\.(eot|ttf|woff|woff2)$/,
+          use: [
+            {
+              loader: 'file-loader'
+            }
+          ]
         }
       ]
     }

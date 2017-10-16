@@ -1,11 +1,6 @@
 {
-    "parser": "babel-eslint",
-    "extends": "prettier",
-    "plugins": [
-        "react",
-        "prettier"
-    ],
+    "extends": "joyent-portal",
     "rules": {
-        "prettier/prettier": "error"
+        "jsx-a11y/href-no-hash": 0
     }
 }

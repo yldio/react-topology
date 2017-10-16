@@ -33,7 +33,7 @@
     "jest": "jest --env=jsdom",
     "test": "run-s lint jest size",
     "size": "bundlesize",
-    "precommit": "npm run build"
+    "precommit": "npm run build && lint-staged"
   },
   "bundlesize": [
     {

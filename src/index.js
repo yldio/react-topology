@@ -428,7 +428,7 @@ class Topology extends React.Component {
           );
 
     return (
-      <StyledSvg
+      <svg
         onMouseMove={onDragMove}
         onTouchMove={onDragMove}
         onMouseUp={onDragEnd}
@@ -441,7 +441,7 @@ class Topology extends React.Component {
         <g>{renderedLinkArrows}</g>
         <g>{dragNode}</g>
         <g>{dragLinkArrow}</g>
-      </StyledSvg>
+      </svg>
     );
   }
 }

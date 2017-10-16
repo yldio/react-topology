@@ -4,14 +4,15 @@ import is, { isNot } from 'styled-is';
 import PropTypes from 'prop-types';
 import { Point } from '../prop-types';
 import { GraphText } from './shapes';
-import { HealthyIcon, theme, InstancesIcon } from 'joyent-ui-toolkit';
+import {
+  HealthyIcon,
+  theme,
+  InstancesIcon,
+  InstancesIconLight
+} from 'joyent-ui-toolkit';
 
 const StyledInstancesIcon = styled(InstancesIcon)`
-  fill: ${theme.white};
-
-  ${is('consul')`
-    fill: ${theme.secondary};
-  `};
+  fill: ${theme.secondary};
 
   ${isNot('active')`
     fill: ${theme.secondary};
@@ -70,7 +71,7 @@ const GraphNodeInfo = ({ data, pos }) => {
     <g transform={`translate(${x}, ${y})`}>
       <g transform={`translate(0, 0)`}>{healthy}</g>
       <g transform={'translate(30, 4.5)'}>
-        <StyledInstancesIcon consul={isConsul} active={instancesActive} />
+        { isConsul ? <StyledInstancesIcon active={instancesActive} /> :  <InstancesIconLight /> }
       </g>
       <GraphText x={54} y={14} consul={isConsul} active={instancesActive}>
         {`${instances.length} inst.`}

@@ -12,8 +12,9 @@ import TopologyLinkArrow from './link/arrow';
 import { getNodeRect, calculateLineLayout } from './functions';
 
 const StyledSvg = Svg.extend`
-  width: 100%;
-  height: 1000px;
+  width: ${props => props.size.width}px;
+  height: ${props => props.size.height}px;
+  max-width: 100%;
   font-family: arial;
 `;
 
@@ -162,9 +163,10 @@ class Topology extends React.Component {
   getNotConnectedNodes(notConnectedServices) {
     return notConnectedServices.map((notConnectedService, index) => {
       const svgSize = this.getSvgSize();
-      const x = notConnectedService.isConsul
-        ? svgSize.width - Constants.nodeSize.width
-        : (Constants.nodeSize.width + 10) * index;
+      const x =
+        notConnectedService.isConsul || notConnectedService.reversed
+          ? svgSize.width - Constants.nodeSize.width
+          : (Constants.nodeSize.width + 10) * index;
 
       return {
         id: notConnectedService.id,
@@ -182,8 +184,12 @@ class Topology extends React.Component {
   create(props) {
     // other updates should also just update the services rather than recreate the simulation
     const services = props.services.sort();
-    const connectedServices = services.filter(service => service.connections.length !== 0);
-    const notConnectedServices = services.filter(service => !service.connections.length !== 0);
+    const connectedServices = services.filter(
+      service => service.connections.length !== 0
+    );
+    const notConnectedServices = services.filter(
+      service => !service.connections.length !== 0
+    );
     const svgSize = this.getSvgSize();
 
     const { nodes, links, simulation } = createSimulation(
@@ -207,18 +213,19 @@ class Topology extends React.Component {
   }
 
   getSvgSize() {
-    if (document.getElementById('topology-svg')) {
-      return document.getElementById('topology-svg').getBoundingClientRect();
+    const { parentId, width, height } = this.props;
+    if (parentId && document.getElementById(parentId)) {
+      const size = document.getElementById(parentId).getBoundingClientRect();
+
+      return {
+        width: window.innerWidth < size.width ? window.innerWidth : size.width,
+        height: size.height
+      };
     }
 
-    const windowWidth =
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth;
-
     return {
-      width: windowWidth - 2 * 24,
-      height: 1000
+      width: window.innerWidth < width ? window.innerWidth : width,
+      height
     };
   }
 
@@ -284,13 +291,14 @@ class Topology extends React.Component {
 
     const nodesData = services.map((service, index) => {
       const nodeRect = getNodeRect(service);
-      const nodePosition = service.connections.length !== 0
-        ? this.getConstrainedNodePosition(
-            service.id,
-            nodeRect,
-            service.children
-          )
-        : this.getNotConnectedNodePosition(service.id);
+      const nodePosition =
+        service.connections.length === 0
+          ? this.getNotConnectedNodePosition(service.id)
+          : this.getConstrainedNodePosition(
+              service.id,
+              nodeRect,
+              service.children
+            );
 
       return {
         ...service,
@@ -365,16 +373,21 @@ class Topology extends React.Component {
       this.setDragInfo(false);
     };
 
-    const renderedNode = (n, index) => (
-      <TopologyNode
-        key={index}
-        data={n}
-        index={index}
-        onDragStart={onDragStart}
-        onNodeTitleClick={onNodeTitleClick}
-        onQuickActions={onQuickActionsClick}
-      />
-    );
+    const renderedNode = (n, index) => {
+      const { nodeColor, nodeReversedColor } = this.props;
+      return (
+        <TopologyNode
+          nodeColor={nodeColor}
+          nodeReversedColor={nodeReversedColor}
+          key={index}
+          data={n}
+          index={index}
+          onDragStart={onDragStart}
+          onNodeTitleClick={onNodeTitleClick}
+          onQuickActions={onQuickActionsClick}
+        />
+      );
+    };
 
     const renderedLink = (l, index) => (
       <TopologyLink key={index} data={l} index={index} />
@@ -428,6 +441,7 @@ class Topology extends React.Component {
 
     return (
       <StyledSvg
+        size={this.getSvgSize()}
         onMouseMove={onDragMove}
         onTouchMove={onDragMove}
         onMouseUp={onDragEnd}
@@ -446,9 +460,44 @@ class Topology extends React.Component {
 }
 
 Topology.propTypes = {
+  /** What should happen when the quick actions are clicked */
   onQuickActionsClick: PropTypes.func,
+  /** What should happen when the title of any node is clicked */
   onNodeTitleClick: PropTypes.func,
-  services: PropTypes.array
+  /** 
+   * The real magic , this is where you pass all of the services you want to see shown
+  */
+  services: PropTypes.array,
+  /** 
+   * Width of the svg.
+   * Needs to be a number and will always be converted into px
+  */
+  width: PropTypes.string,
+  /** 
+   * Height of the svg.
+   * Needs to be a number and will always be converted into px
+  */
+  height: PropTypes.string,
+  /** If you have a parent already with a width and height you can pass the id and that will be used */
+  parentId: PropTypes.string,
+  /** 
+   * Color of each node
+  */
+  nodeColor: PropTypes.string,
+  /** 
+   * Color of each node when reversed
+  */
+  nodeReversedColor: PropTypes.string
+};
+
+Topology.defaultProps = {
+  width: 600,
+  height: 600,
+  onQuickActionsClick: () => {},
+  onNodeTitleClick: () => {},
+  services: [],
+  nodeColor: '#343434',
+  nodeReversedColor: '#FFF'
 };
 
 export default Topology;

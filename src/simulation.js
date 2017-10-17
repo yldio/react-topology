@@ -69,6 +69,7 @@ const createSimulation = (services, svgSize, animationTicks = 0) => {
   };
 };
 
+// eslint-disable-next-line
 const updateSimulation = (
   simulation,
   services,

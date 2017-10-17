@@ -1,35 +1,37 @@
 import styled from 'styled-components';
 import is, { isNot } from 'styled-is';
 import { theme } from 'joyent-ui-toolkit';
+import { darken, lighten } from 'polished';
 
 export const GraphLine = styled.line`
-  stroke: ${theme.secondaryActive};
-  stroke-width: 1.5;
+  stroke: ${props => props.nodeColor && lighten(0.1, props.nodeColor)};
 
   ${is('consul')`
-    stroke: ${theme.grey};
+    stroke: ${props =>
+      props.nodeReversedColor && darken(0.2, props.nodeReversedColor)};
   `};
 
   ${isNot('active')`
-    stroke: ${theme.grey};
+    stroke: ${props =>
+      props.nodeReversedColor && darken(0.2, props.nodeReversedColor)};
   `};
 `;
 
 export const GraphNodeRect = styled.rect`
-  fill: ${theme.secondary};
-  stroke: ${theme.secondaryActive};
+  fill: ${props => props.nodeColor};
+  stroke: ${props => lighten(0.2, props.nodeColor)};
   stroke-width: 1.5;
   rx: 4;
   ry: 4;
 
   ${is('consul')`
-    stroke: ${theme.grey};
-    fill: ${theme.white};
+    stroke: ${props => darken(0.2, props.nodeReversedColor)};
+    fill: ${props => props.nodeReversedColor};
   `};
 
   ${isNot('active')`
-    stroke: ${theme.grey};
-    fill: ${theme.whiteActive};
+    stroke: ${props => darken(0.2, props.nodeReversedColor)};
+    fill: ${props => props.nodeReversedColor};
   `};
 
   ${is('connected')`
@@ -38,13 +40,14 @@ export const GraphNodeRect = styled.rect`
 `;
 
 export const GraphShadowRect = styled.rect`
-  fill: ${theme.secondary};
-  opacity: 0.33;
+  fill: ${props => props.nodeColor && darken(0.1, props.nodeColor)};
+  opacity: 0.2;
   rx: 4;
   ry: 4;
 
   ${is('consul')`
-    fill: ${theme.grey};
+    fill: ${props =>
+      props.nodeReversedColor && darken(0.1, props.nodeReversedColor)};
   `};
 `;
 

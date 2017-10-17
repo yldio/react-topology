@@ -24,7 +24,17 @@ it('renders <Topology /> without throwing', () => {
 it('renders <Topology /> without throwing', () => {
   const fn = jest.fn();
   const tree = mount(<Topology services={graphql} onQuickActionsClick={fn} />);
-  tree.find('.kMHeTL').first().simulate('click');
-  expect(fn).toHaveBeenCalled()
+  tree
+    .find('.kMHeTL')
+    .first()
+    .simulate('click');
+  expect(fn).toHaveBeenCalled();
+  expect(tree).toMatchSnapshot();
+});
+
+it('renders <Topology /> width colors', () => {
+  const tree = mount(
+    <Topology services={graphql} nodeColor="red" nodeReversedColor="blue" />
+  );
   expect(tree).toMatchSnapshot();
 });

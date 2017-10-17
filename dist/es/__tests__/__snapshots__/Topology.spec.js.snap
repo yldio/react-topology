@@ -5,7 +5,6 @@ exports[`renders <Topology /> without throwing 1`] = `
   services={
     Array [
       Object {
-        "connected": true,
         "connections": Array [
           "aea06a05-830a-46d3-bdc1-9dcba97303de",
         ],
@@ -44,7 +43,6 @@ exports[`renders <Topology /> without throwing 1`] = `
         "transitionalStatus": false,
       },
       Object {
-        "connected": true,
         "connections": Array [
           "af6a5cd2-291f-490b-bf3b-141b010635db",
         ],
@@ -79,7 +77,6 @@ exports[`renders <Topology /> without throwing 1`] = `
         "transitionalStatus": false,
       },
       Object {
-        "connected": true,
         "connections": Array [
           "af6a5cd2-291f-490b-bf3b-asdasads",
         ],
@@ -150,7 +147,6 @@ exports[`renders <Topology /> without throwing 1`] = `
         <GraphNode
           data={
             Object {
-              "connected": true,
               "connections": Array [
                 "aea06a05-830a-46d3-bdc1-9dcba97303de",
               ],
@@ -248,7 +244,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             <GraphNodeTitle
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "aea06a05-830a-46d3-bdc1-9dcba97303de",
                   ],
@@ -413,7 +408,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             <GraphNodeContent
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "aea06a05-830a-46d3-bdc1-9dcba97303de",
                   ],
@@ -485,7 +479,6 @@ exports[`renders <Topology /> without throwing 1`] = `
                 <GraphNodeInfo
                   data={
                     Object {
-                      "connected": true,
                       "connections": Array [
                         "aea06a05-830a-46d3-bdc1-9dcba97303de",
                       ],
@@ -551,16 +544,16 @@ exports[`renders <Topology /> without throwing 1`] = `
                         healthy={false}
                       >
                         <healthy__StyledHealthyIcon
-                          className="sc-VigVT TiBPa"
+                          className="sc-VigVT esakGZ"
                           healthy={false}
                           innerRef={undefined}
                         >
                           <HealthyIcon
-                            className="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+                            className="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
                             healthy={false}
                           >
                             <svg
-                              className="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+                              className="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
                               healthy={false}
                               height="18"
                               viewBox="0 0 18 18"
@@ -663,7 +656,6 @@ exports[`renders <Topology /> without throwing 1`] = `
         <GraphNode
           data={
             Object {
-              "connected": true,
               "connections": Array [
                 "af6a5cd2-291f-490b-bf3b-141b010635db",
               ],
@@ -757,7 +749,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             <GraphNodeTitle
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "af6a5cd2-291f-490b-bf3b-141b010635db",
                   ],
@@ -918,7 +909,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             <GraphNodeContent
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "af6a5cd2-291f-490b-bf3b-141b010635db",
                   ],
@@ -986,7 +976,6 @@ exports[`renders <Topology /> without throwing 1`] = `
                 <GraphNodeInfo
                   data={
                     Object {
-                      "connected": true,
                       "connections": Array [
                         "af6a5cd2-291f-490b-bf3b-141b010635db",
                       ],
@@ -1147,7 +1136,6 @@ exports[`renders <Topology /> without throwing 1`] = `
         <GraphNode
           data={
             Object {
-              "connected": true,
               "connections": Array [
                 "af6a5cd2-291f-490b-bf3b-asdasads",
               ],
@@ -1254,7 +1242,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             <GraphNodeTitle
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "af6a5cd2-291f-490b-bf3b-asdasads",
                   ],
@@ -1428,7 +1415,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             <GraphNodeContent
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "af6a5cd2-291f-490b-bf3b-asdasads",
                   ],
@@ -1509,7 +1495,6 @@ exports[`renders <Topology /> without throwing 1`] = `
                 <GraphNodeInfo
                   data={
                     Object {
-                      "connected": true,
                       "connections": Array [
                         "af6a5cd2-291f-490b-bf3b-asdasads",
                       ],
@@ -1584,16 +1569,16 @@ exports[`renders <Topology /> without throwing 1`] = `
                         healthy={false}
                       >
                         <healthy__StyledHealthyIcon
-                          className="sc-VigVT TiBPa"
+                          className="sc-VigVT esakGZ"
                           healthy={false}
                           innerRef={undefined}
                         >
                           <HealthyIcon
-                            className="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+                            className="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
                             healthy={false}
                           >
                             <svg
-                              className="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+                              className="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
                               healthy={false}
                               height="18"
                               viewBox="0 0 18 18"
@@ -1713,7 +1698,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             Object {
               "arrowAngle": 178.82642346189033,
               "source": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-141b010635db",
                 ],
@@ -1763,7 +1747,6 @@ exports[`renders <Topology /> without throwing 1`] = `
                 "y": 426.51294748959975,
               },
               "target": Object {
-                "connected": true,
                 "connections": Array [
                   "aea06a05-830a-46d3-bdc1-9dcba97303de",
                 ],
@@ -1841,7 +1824,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             Object {
               "arrowAngle": 288.94191642076464,
               "source": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-asdasads",
                 ],
@@ -1904,7 +1886,6 @@ exports[`renders <Topology /> without throwing 1`] = `
                 "y": 602.4890376907401,
               },
               "target": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-141b010635db",
                 ],
@@ -1980,7 +1961,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             Object {
               "arrowAngle": 178.82642346189033,
               "source": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-141b010635db",
                 ],
@@ -2030,7 +2010,6 @@ exports[`renders <Topology /> without throwing 1`] = `
                 "y": 426.51294748959975,
               },
               "target": Object {
-                "connected": true,
                 "connections": Array [
                   "aea06a05-830a-46d3-bdc1-9dcba97303de",
                 ],
@@ -2138,7 +2117,6 @@ exports[`renders <Topology /> without throwing 1`] = `
             Object {
               "arrowAngle": 288.94191642076464,
               "source": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-asdasads",
                 ],
@@ -2201,7 +2179,6 @@ exports[`renders <Topology /> without throwing 1`] = `
                 "y": 602.4890376907401,
               },
               "target": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-141b010635db",
                 ],
@@ -2321,7 +2298,6 @@ exports[`renders <Topology /> without throwing 2`] = `
     <GraphNode
       data={
         Object {
-          "connected": true,
           "connections": Array [
             "aea06a05-830a-46d3-bdc1-9dcba97303de",
           ],
@@ -2377,7 +2353,6 @@ exports[`renders <Topology /> without throwing 2`] = `
     <GraphNode
       data={
         Object {
-          "connected": true,
           "connections": Array [
             "af6a5cd2-291f-490b-bf3b-141b010635db",
           ],
@@ -2429,7 +2404,6 @@ exports[`renders <Topology /> without throwing 2`] = `
     <GraphNode
       data={
         Object {
-          "connected": true,
           "connections": Array [
             "af6a5cd2-291f-490b-bf3b-asdasads",
           ],
@@ -2498,7 +2472,6 @@ exports[`renders <Topology /> without throwing 2`] = `
         Object {
           "arrowAngle": 178.82642346189033,
           "source": Object {
-            "connected": true,
             "connections": Array [
               "af6a5cd2-291f-490b-bf3b-141b010635db",
             ],
@@ -2548,7 +2521,6 @@ exports[`renders <Topology /> without throwing 2`] = `
             "y": 426.51294748959975,
           },
           "target": Object {
-            "connected": true,
             "connections": Array [
               "aea06a05-830a-46d3-bdc1-9dcba97303de",
             ],
@@ -2611,7 +2583,6 @@ exports[`renders <Topology /> without throwing 2`] = `
         Object {
           "arrowAngle": 288.94191642076464,
           "source": Object {
-            "connected": true,
             "connections": Array [
               "af6a5cd2-291f-490b-bf3b-asdasads",
             ],
@@ -2674,7 +2645,6 @@ exports[`renders <Topology /> without throwing 2`] = `
             "y": 602.4890376907401,
           },
           "target": Object {
-            "connected": true,
             "connections": Array [
               "af6a5cd2-291f-490b-bf3b-141b010635db",
             ],
@@ -2735,7 +2705,6 @@ exports[`renders <Topology /> without throwing 2`] = `
         Object {
           "arrowAngle": 178.82642346189033,
           "source": Object {
-            "connected": true,
             "connections": Array [
               "af6a5cd2-291f-490b-bf3b-141b010635db",
             ],
@@ -2785,7 +2754,6 @@ exports[`renders <Topology /> without throwing 2`] = `
             "y": 426.51294748959975,
           },
           "target": Object {
-            "connected": true,
             "connections": Array [
               "aea06a05-830a-46d3-bdc1-9dcba97303de",
             ],
@@ -2848,7 +2816,6 @@ exports[`renders <Topology /> without throwing 2`] = `
         Object {
           "arrowAngle": 288.94191642076464,
           "source": Object {
-            "connected": true,
             "connections": Array [
               "af6a5cd2-291f-490b-bf3b-asdasads",
             ],
@@ -2911,7 +2878,6 @@ exports[`renders <Topology /> without throwing 2`] = `
             "y": 602.4890376907401,
           },
           "target": Object {
-            "connected": true,
             "connections": Array [
               "af6a5cd2-291f-490b-bf3b-141b010635db",
             ],
@@ -3056,7 +3022,7 @@ exports[`renders <Topology /> without throwing 3`] = `
             transform="translate(0, 0)"
           >
             <svg
-              class="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+              class="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
               height="18"
               viewBox="0 0 18 18"
               width="18"
@@ -3348,7 +3314,7 @@ exports[`renders <Topology /> without throwing 3`] = `
             transform="translate(0, 0)"
           >
             <svg
-              class="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+              class="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
               height="18"
               viewBox="0 0 18 18"
               width="18"
@@ -3502,7 +3468,6 @@ exports[`renders <Topology /> without throwing 4`] = `
   services={
     Array [
       Object {
-        "connected": true,
         "connections": Array [
           "aea06a05-830a-46d3-bdc1-9dcba97303de",
         ],
@@ -3541,7 +3506,6 @@ exports[`renders <Topology /> without throwing 4`] = `
         "transitionalStatus": false,
       },
       Object {
-        "connected": true,
         "connections": Array [
           "af6a5cd2-291f-490b-bf3b-141b010635db",
         ],
@@ -3576,7 +3540,6 @@ exports[`renders <Topology /> without throwing 4`] = `
         "transitionalStatus": false,
       },
       Object {
-        "connected": true,
         "connections": Array [
           "af6a5cd2-291f-490b-bf3b-asdasads",
         ],
@@ -3647,7 +3610,6 @@ exports[`renders <Topology /> without throwing 4`] = `
         <GraphNode
           data={
             Object {
-              "connected": true,
               "connections": Array [
                 "aea06a05-830a-46d3-bdc1-9dcba97303de",
               ],
@@ -3745,7 +3707,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             <GraphNodeTitle
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "aea06a05-830a-46d3-bdc1-9dcba97303de",
                   ],
@@ -3910,7 +3871,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             <GraphNodeContent
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "aea06a05-830a-46d3-bdc1-9dcba97303de",
                   ],
@@ -3982,7 +3942,6 @@ exports[`renders <Topology /> without throwing 4`] = `
                 <GraphNodeInfo
                   data={
                     Object {
-                      "connected": true,
                       "connections": Array [
                         "aea06a05-830a-46d3-bdc1-9dcba97303de",
                       ],
@@ -4048,16 +4007,16 @@ exports[`renders <Topology /> without throwing 4`] = `
                         healthy={false}
                       >
                         <healthy__StyledHealthyIcon
-                          className="sc-VigVT TiBPa"
+                          className="sc-VigVT esakGZ"
                           healthy={false}
                           innerRef={undefined}
                         >
                           <HealthyIcon
-                            className="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+                            className="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
                             healthy={false}
                           >
                             <svg
-                              className="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+                              className="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
                               healthy={false}
                               height="18"
                               viewBox="0 0 18 18"
@@ -4160,7 +4119,6 @@ exports[`renders <Topology /> without throwing 4`] = `
         <GraphNode
           data={
             Object {
-              "connected": true,
               "connections": Array [
                 "af6a5cd2-291f-490b-bf3b-141b010635db",
               ],
@@ -4254,7 +4212,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             <GraphNodeTitle
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "af6a5cd2-291f-490b-bf3b-141b010635db",
                   ],
@@ -4415,7 +4372,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             <GraphNodeContent
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "af6a5cd2-291f-490b-bf3b-141b010635db",
                   ],
@@ -4483,7 +4439,6 @@ exports[`renders <Topology /> without throwing 4`] = `
                 <GraphNodeInfo
                   data={
                     Object {
-                      "connected": true,
                       "connections": Array [
                         "af6a5cd2-291f-490b-bf3b-141b010635db",
                       ],
@@ -4644,7 +4599,6 @@ exports[`renders <Topology /> without throwing 4`] = `
         <GraphNode
           data={
             Object {
-              "connected": true,
               "connections": Array [
                 "af6a5cd2-291f-490b-bf3b-asdasads",
               ],
@@ -4751,7 +4705,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             <GraphNodeTitle
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "af6a5cd2-291f-490b-bf3b-asdasads",
                   ],
@@ -4925,7 +4878,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             <GraphNodeContent
               data={
                 Object {
-                  "connected": true,
                   "connections": Array [
                     "af6a5cd2-291f-490b-bf3b-asdasads",
                   ],
@@ -5006,7 +4958,6 @@ exports[`renders <Topology /> without throwing 4`] = `
                 <GraphNodeInfo
                   data={
                     Object {
-                      "connected": true,
                       "connections": Array [
                         "af6a5cd2-291f-490b-bf3b-asdasads",
                       ],
@@ -5081,16 +5032,16 @@ exports[`renders <Topology /> without throwing 4`] = `
                         healthy={false}
                       >
                         <healthy__StyledHealthyIcon
-                          className="sc-VigVT TiBPa"
+                          className="sc-VigVT esakGZ"
                           healthy={false}
                           innerRef={undefined}
                         >
                           <HealthyIcon
-                            className="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+                            className="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
                             healthy={false}
                           >
                             <svg
-                              className="sc-VigVT TiBPa healthy__StyledHealthyIcon-EmIZP iBQdnE"
+                              className="sc-VigVT esakGZ healthy__StyledHealthyIcon-EmIZP iBQdnE"
                               healthy={false}
                               height="18"
                               viewBox="0 0 18 18"
@@ -5210,7 +5161,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             Object {
               "arrowAngle": 178.82642346189033,
               "source": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-141b010635db",
                 ],
@@ -5260,7 +5210,6 @@ exports[`renders <Topology /> without throwing 4`] = `
                 "y": 426.51294748959975,
               },
               "target": Object {
-                "connected": true,
                 "connections": Array [
                   "aea06a05-830a-46d3-bdc1-9dcba97303de",
                 ],
@@ -5338,7 +5287,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             Object {
               "arrowAngle": 288.94191642076464,
               "source": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-asdasads",
                 ],
@@ -5401,7 +5349,6 @@ exports[`renders <Topology /> without throwing 4`] = `
                 "y": 602.4890376907401,
               },
               "target": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-141b010635db",
                 ],
@@ -5477,7 +5424,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             Object {
               "arrowAngle": 178.82642346189033,
               "source": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-141b010635db",
                 ],
@@ -5527,7 +5473,6 @@ exports[`renders <Topology /> without throwing 4`] = `
                 "y": 426.51294748959975,
               },
               "target": Object {
-                "connected": true,
                 "connections": Array [
                   "aea06a05-830a-46d3-bdc1-9dcba97303de",
                 ],
@@ -5635,7 +5580,6 @@ exports[`renders <Topology /> without throwing 4`] = `
             Object {
               "arrowAngle": 288.94191642076464,
               "source": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-asdasads",
                 ],
@@ -5698,7 +5642,6 @@ exports[`renders <Topology /> without throwing 4`] = `
                 "y": 602.4890376907401,
               },
               "target": Object {
-                "connected": true,
                 "connections": Array [
                   "af6a5cd2-291f-490b-bf3b-141b010635db",
                 ],

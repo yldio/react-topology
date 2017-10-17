@@ -36,21 +36,28 @@ const GraphNodeInfo = ({ data, pos }) => {
     instances,
     instanceStatuses,
     instancesHealthy,
-    isConsul,
     instancesActive,
     transitionalStatus,
-    status
+    status,
+    isConsul,
+    reversed
   } = data;
+  const reverse = isConsul || reversed;
 
   const { x, y } = pos;
 
   const statuses = transitionalStatus ? (
-    <GraphText consul={isConsul} active={instancesActive}>
+    <GraphText consul={reverse} active={instancesActive}>
       {status.toLowerCase()}
     </GraphText>
   ) : (
     instanceStatuses.map((instanceStatus, index) => (
-      <GraphText key={index} index={index} consul={isConsul} active={instancesActive}>
+      <GraphText
+        key={index}
+        index={index}
+        consul={reverse}
+        active={instancesActive}
+      >
         {`${instanceStatus.count}
             ${instanceStatus.status.toLowerCase()}`}
       </GraphText>
@@ -69,12 +76,18 @@ const GraphNodeInfo = ({ data, pos }) => {
     <g transform={`translate(${x}, ${y})`}>
       <g transform={`translate(0, 0)`}>{healthy}</g>
       <g transform={'translate(30, 4.5)'}>
-        { isConsul ? <StyledInstancesIcon active={instancesActive} /> :  <InstancesIconLight /> }
+        {reverse ? (
+          <StyledInstancesIcon active={instancesActive} />
+        ) : (
+          <InstancesIconLight />
+        )}
       </g>
-      <GraphText x={54} y={14} consul={isConsul} active={instancesActive}>
+      <GraphText x={54} y={14} consul={reverse} active={instancesActive}>
         {`${instances.length} inst.`}
       </GraphText>
-      <g transform={'translate(54, 36)'} height="200">{statuses}</g>
+      <g transform={'translate(54, 36)'} height="200">
+        {statuses}
+      </g>
     </g>
   );
 };

@@ -8,9 +8,12 @@ const GraphNodeContent = ({
   child = false,
   data,
   y = Constants.contentRect.y,
-  index = 0
+  index = 0,
+  nodeColor,
+  nodeReversedColor
 }) => {
   const { x, width } = Constants.contentRect;
+  const reverse = data.isConsul || data.reversed;
 
   const nodeInfoPos = child
     ? {
@@ -22,15 +25,23 @@ const GraphNodeContent = ({
   const nodeSubtitle = child ? (
     <GraphSubtitle
       {...Constants.subtitlePosition}
-      consul={data.isConsul}
+      consul={reverse}
       active={data.instancesActive}
+      nodeColor={nodeColor}
+      nodeReversedColor={nodeReversedColor}
     >
       {data.name}
     </GraphSubtitle>
   ) : null;
 
-  const nodeInfo = <GraphNodeInfo data={data} pos={nodeInfoPos} />;
-
+  const nodeInfo = (
+    <GraphNodeInfo
+      data={data}
+      pos={nodeInfoPos}
+      nodeColor={nodeColor}
+      nodeReversedColor={nodeReversedColor}
+    />
+  );
   return (
     <g transform={`translate(${x}, ${y})`}>
       <GraphLine
@@ -38,8 +49,10 @@ const GraphNodeContent = ({
         y1={0}
         x2={width}
         y2={0}
-        consul={data.isConsul}
+        consul={reverse}
         active={data.instancesActive}
+        nodeColor={nodeColor}
+        nodeReversedColor={nodeReversedColor}
       />
       {nodeSubtitle}
       {nodeInfo}

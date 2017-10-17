@@ -33,7 +33,7 @@ export const graphql = [
       healthy: 0
     },
     transitionalStatus: false,
-    isConsul: false
+    reversed: true
   },
   {
     index: 1,
@@ -65,7 +65,7 @@ export const graphql = [
       healthy: 2
     },
     transitionalStatus: false,
-    isConsul: false
+    isConsul: true
   },
   {
     index: 2,

@@ -10,7 +10,7 @@ const GraphNodeTitle = ({ data, onNodeTitleClick }) => (
       y={30}
       onClick={onNodeTitleClick}
       onKeyDown={onNodeTitleClick}
-      consul={data.isConsul}
+      consul={data.isConsul || data.reversed}
       active={data.instancesActive}
     >
       {data.name}

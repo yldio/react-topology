@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import Constants from '../constants';
 import { GraphLine, GraphButtonRect, GraphButtonCircle } from './shapes';
 
-const NodeButton = ({ onButtonClick, index, isConsul, instancesActive }) => {
+const NodeButton = ({
+  onButtonClick,
+  index,
+  isConsul,
+  reversed,
+  instancesActive
+}) => {
   const { x, y, width, height } = Constants.buttonRect;
+  const reverse = isConsul || reversed;
 
   const buttonCircleRadius = 2;
   const buttonCircleSpacing = 2;
@@ -19,7 +26,7 @@ const NodeButton = ({ onButtonClick, index, isConsul, instancesActive }) => {
       }
       key={index}
       r={2}
-      consul={isConsul}
+      consul={reverse}
       active={instancesActive}
     />
   ));
@@ -31,7 +38,7 @@ const NodeButton = ({ onButtonClick, index, isConsul, instancesActive }) => {
         y1={0}
         x2={0}
         y2={height}
-        consul={isConsul}
+        consul={reverse}
         active={instancesActive}
       />
       {buttonCircles}
@@ -51,6 +58,7 @@ NodeButton.propTypes = {
   index: PropTypes.number.isRequired,
   onButtonClick: PropTypes.func.isRequired,
   isConsul: PropTypes.bool,
+  reversed: PropTypes.bool,
   instancesActive: PropTypes.bool
 };
 

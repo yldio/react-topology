@@ -14,6 +14,7 @@ import { getNodeRect, calculateLineLayout } from './functions';
 const StyledSvg = Svg.extend`
   width: 100%;
   height: 1000px;
+  font-family: arial;
 `;
 
 class Topology extends React.Component {
@@ -105,10 +106,10 @@ class Topology extends React.Component {
     // we should forceUpdate once the state has been updated
     const nextServices = nextProps.services.sort();
     const connectedNextServices = nextServices.filter(
-      service => service.connected
+      service => service.connections.length !== 0
     );
     const notConnectedNextServices = nextServices.filter(
-      service => !service.connected
+      service => !service.connections.length !== 0
     );
 
     const { services } = this.state;
@@ -181,8 +182,8 @@ class Topology extends React.Component {
   create(props) {
     // other updates should also just update the services rather than recreate the simulation
     const services = props.services.sort();
-    const connectedServices = services.filter(service => service.connected);
-    const notConnectedServices = services.filter(service => !service.connected);
+    const connectedServices = services.filter(service => service.connections.length !== 0);
+    const notConnectedServices = services.filter(service => !service.connections.length !== 0);
     const svgSize = this.getSvgSize();
 
     const { nodes, links, simulation } = createSimulation(
@@ -283,7 +284,7 @@ class Topology extends React.Component {
 
     const nodesData = services.map((service, index) => {
       const nodeRect = getNodeRect(service);
-      const nodePosition = service.connected
+      const nodePosition = service.connections.length !== 0
         ? this.getConstrainedNodePosition(
             service.id,
             nodeRect,
@@ -298,8 +299,6 @@ class Topology extends React.Component {
       };
     });
 
-    // TODO links will need to know whether a service has children
-    // if it does, the height of it will be different
     const linksData = links
       .map((link, index) => ({
         source: this.findNodeData(nodesData, link.source.id),

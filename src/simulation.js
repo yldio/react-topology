@@ -69,7 +69,6 @@ const createSimulation = (services, svgSize, animationTicks = 0) => {
   };
 };
 
-// TODO we need to kill the previous simulation
 const updateSimulation = (
   simulation,
   services,

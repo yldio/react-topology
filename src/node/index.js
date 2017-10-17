@@ -15,12 +15,12 @@ const GraphNode = ({
   onQuickActions
 }) => {
   const { left, top, width, height } = data.nodeRect;
-  const { connected, id, children, instancesActive, isConsul } = data;
+  const { connections, id, children, instancesActive, isConsul } = data;
 
   let x = data.x;
   let y = data.y;
 
-  if (connected) {
+  if (connections.length !== 0) {
     x = data.x + left;
     y = data.y + top;
   }
@@ -31,7 +31,7 @@ const GraphNode = ({
       y: data.y + Constants.buttonRect.y + Constants.buttonRect.height
     };
 
-    if (connected) {
+    if (connections.length !== 0) {
       tooltipPosition.x += left;
       tooltipPosition.y += top;
     }
@@ -54,12 +54,13 @@ const GraphNode = ({
     onDragStart(evt, id);
   };
 
-  const nodeRectEvents = connected
-    ? {
-        onMouseDown: onStart,
-        onTouchStart: onStart
-      }
-    : {};
+  const nodeRectEvents =
+    connections.length === 0
+      ? {}
+      : {
+          onMouseDown: onStart,
+          onTouchStart: onStart
+        };
 
   const nodeContent = children ? (
     children.reduce(
@@ -97,7 +98,7 @@ const GraphNode = ({
         height={height}
         consul={isConsul}
         active={instancesActive}
-        connected={connected}
+        connected={connections.length !== 0}
         {...nodeRectEvents}
       />
       <GraphNodeTitle data={data} onNodeTitleClick={onTitleClick} />

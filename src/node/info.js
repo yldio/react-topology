@@ -26,8 +26,8 @@ const StyledHealthyIcon = styled(HealthyIcon)`
     fill: ${theme.green};
   `};
 
-  ${is('unhealthy')`
-    fill: ${theme.red};
+  ${isNot('healthy')`
+    fill: ${theme.orange};
   `};
 `;
 
@@ -50,7 +50,7 @@ const GraphNodeInfo = ({ data, pos }) => {
     </GraphText>
   ) : (
     instanceStatuses.map((instanceStatus, index) => (
-      <GraphText key={index} consul={isConsul} active={instancesActive}>
+      <GraphText key={index} index={index} consul={isConsul} active={instancesActive}>
         {`${instanceStatus.count}
             ${instanceStatus.status.toLowerCase()}`}
       </GraphText>
@@ -61,8 +61,6 @@ const GraphNodeInfo = ({ data, pos }) => {
     <StyledHealthyIcon
       healthy={
         instancesHealthy && instancesHealthy.total === instancesHealthy.healthy
-          ? 'HEALTHY'
-          : 'UNHEALTHY'
       }
     />
   );
@@ -76,7 +74,7 @@ const GraphNodeInfo = ({ data, pos }) => {
       <GraphText x={54} y={14} consul={isConsul} active={instancesActive}>
         {`${instances.length} inst.`}
       </GraphText>
-      <g transform={'translate(54, 36)'}>{statuses}</g>
+      <g transform={'translate(54, 36)'} height="200">{statuses}</g>
     </g>
   );
 };

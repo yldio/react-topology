@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import is, { isNot } from 'styled-is';
-import { theme } from 'joyent-ui-toolkit'
+import { theme } from 'joyent-ui-toolkit';
 
 export const GraphLine = styled.line`
   stroke: ${theme.secondaryActive};
@@ -88,6 +88,7 @@ export const GraphText = styled.text`
   font-size: 12px;
   fill: ${theme.white};
   opacity: 0.8;
+  transform: translateY(calc(17 * ${props => props.index}px));
 
   ${is('consul')`
     fill: ${theme.secondary};

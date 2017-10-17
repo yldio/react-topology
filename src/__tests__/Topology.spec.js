@@ -1,104 +1,30 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import Adapter from 'enzyme-adapter-react-16';
+import Enzyme, { mount, shallow, render } from 'enzyme';
+import { graphql } from '../data';
 import Topology from '../';
 
+Enzyme.configure({ adapter: new Adapter() });
+
 it('renders <Topology /> without throwing', () => {
-  const tree = renderer
-    .create(
-<Topology services=
-{[
-    {
-      "index": 0,
-      "id": "af6a5cd2-291f-490b-bf3b-141b010635db",
-      "name": "frontend",
-      "slug": "frontend",
-      "status": "ACTIVE",
-      "__typename": "Service",
-      "branches": [],
-      "connections": [
-        "aea06a05-830a-46d3-bdc1-9dcba97303de"
-      ],
-      "instances": [
-        {
-          "id": "f1fb3c1d-9e0e-4538-b2ad-1124bce2459e",
-          "status": "RUNNING",
-          "healthy": "UNKNOWN",
-          "__typename": "Instance"
-        },
-        {
-          "id": "c5c7ae33-cfe1-43cc-9e9b-6f453de3888d",
-          "status": "FAILED",
-          "healthy": "UNAVAILABLE",
-          "__typename": "Instance"
-        }
-      ],
-      "instanceStatuses": [
-        {
-          "status": "RUNNING",
-          "count": 1
-        },
-        {
-          "status": "FAILED",
-          "count": 1
-        }
-      ],
-      "instancesActive": true,
-      "instancesHealthy": {
-        "total": 2,
-        "healthy": 0
-      },
-      "transitionalStatus": false,
-      "isConsul": false,
-      "connected": true
-    },
-    {
-      "index": 1,
-      "id": "af6a5cd2-291f-490b-bf3b-asdasads",
-      "name": "consul",
-      "slug": "consul",
-      "status": "ACTIVE",
-      "__typename": "Service",
-      "branches": [],
-      "connections": [
-        "af6a5cd2-291f-490b-bf3b-141b010635db"
-      ],
-      "instances": [
-        {
-          "id": "f1fb3c1d-9e0e-4538-b2ad-1124bce2459e",
-          "status": "RUNNING",
-          "healthy": "UNKNOWN",
-          "__typename": "Instance"
-        },
-        {
-          "id": "c5c7ae33-cfe1-43cc-9e9b-6f453de3888d",
-          "status": "FAILED",
-          "healthy": "UNAVAILABLE",
-          "__typename": "Instance"
-        }
-      ],
-      "instanceStatuses": [
-        {
-          "status": "RUNNING",
-          "count": 1
-        },
-        {
-          "status": "RUNNING",
-          "count": 1
-        }
-      ],
-      "instancesActive": true,
-      "instancesHealthy": {
-        "total": 2,
-        "healthy": 2
-      },
-      "transitionalStatus": false,
-      "isConsul": true,
-      "connected": true
-    }
-  ]
-} />
-    )
-    .toJSON();
+  const tree = mount(<Topology services={graphql} />);
+  expect(tree).toMatchSnapshot();
+});
+
+it('renders <Topology /> without throwing', () => {
+  const tree = shallow(<Topology services={graphql} />);
+  expect(tree).toMatchSnapshot();
+});
+
+it('renders <Topology /> without throwing', () => {
+  const tree = render(<Topology services={graphql} />);
+  expect(tree).toMatchSnapshot();
+});
+
+it('renders <Topology /> without throwing', () => {
+  const fn = jest.fn();
+  const tree = mount(<Topology services={graphql} onQuickActionsClick={fn} />);
+  tree.find('.kMHeTL').first().simulate('click');
+  expect(fn).toHaveBeenCalled()
   expect(tree).toMatchSnapshot();
 });

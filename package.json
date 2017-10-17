@@ -33,7 +33,7 @@
     "lint": "eslint src",
     "jest": "jest --env=jsdom",
     "test": "run-s lint jest",
-    "precommit": "npm run build && lint-staged"
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "babel-loader": "^7.1.2",
@@ -79,6 +79,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
+      "jest --bail --findRelatedTests",
       "eslint --fix",
       "git add -A"
     ]

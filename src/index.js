@@ -5,11 +5,12 @@ import difference from 'lodash.difference';
 import differenceBy from 'lodash.differenceby';
 
 import Constants from './constants';
-import { createSimulation } from './simulation';
+import createSimulation from './simulation';
 import TopologyNode from './node';
 import TopologyLink from './link';
 import TopologyLinkArrow from './link/arrow';
 import { getNodeRect, calculateLineLayout } from './functions';
+import { instanceStatuses, instances, instancesHealthy } from './prop-types';
 
 const StyledSvg = Svg.extend`
   width: ${props => props.size.width}px;
@@ -32,9 +33,7 @@ class Topology extends React.Component {
     window.removeEventListener('resize', this.boundResize);
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
+  shouldComponentUpdate = () => false;
 
   getChangedConnections(services, nextServices) {
     return nextServices.reduce((changed, nextService) => {
@@ -45,16 +44,16 @@ class Topology extends React.Component {
         .filter(service => service.id === nextService.id)
         .shift();
       const connectionsAdded = difference(
-        nextService.connections,
-        service.connections
+        nextService.connections || [],
+        service.connections || []
       ).length;
       // there's a new connection, we need to redraw
       if (connectionsAdded) {
         return { added: true };
       }
       const connectionsRemoved = difference(
-        service.connections,
-        nextService.connections
+        service.connections || [],
+        nextService.connections || []
       ).length;
       // we'll need to remove the offending connections from links
       if (connectionsRemoved) {
@@ -104,13 +103,15 @@ class Topology extends React.Component {
     // if we remove a node, it should just be removed from the simulation nodes and links
     // if we add a node, then we should recreate the damn thing
     // on other updates, we should update the services on the state and that's it
-    // we should forceUpdate once the state has been updated
-    const nextServices = nextProps.services.sort();
+    const nextServices = Array.isArray(nextProps.services)
+      ? nextProps.services.sort()
+      : [nextProps.services];
+
     const connectedNextServices = nextServices.filter(
-      service => service.connections.length !== 0
+      service => (service.connections || []).length !== 0
     );
     const notConnectedNextServices = nextServices.filter(
-      service => !service.connections.length !== 0
+      service => !(service.connections || []).length !== 0
     );
 
     const { services } = this.state;
@@ -162,7 +163,7 @@ class Topology extends React.Component {
 
   getNotConnectedNodes(notConnectedServices) {
     return notConnectedServices.map((notConnectedService, index) => {
-      const svgSize = this.getSvgSize();
+      const svgSize = this.getContentSize();
       const x =
         notConnectedService.isConsul || notConnectedService.reversed
           ? svgSize.width - Constants.nodeSize.width
@@ -183,14 +184,16 @@ class Topology extends React.Component {
 
   create(props) {
     // other updates should also just update the services rather than recreate the simulation
-    const services = props.services.sort();
+    const services = Array.isArray(props.services)
+      ? props.services.sort()
+      : [props.services];
     const connectedServices = services.filter(
-      service => service.connections.length !== 0
+      service => (service.connections || []).length !== 0
     );
     const notConnectedServices = services.filter(
-      service => !service.connections.length !== 0
+      service => !(service.connections || []).length !== 0
     );
-    const svgSize = this.getSvgSize();
+    const svgSize = this.getContentSize();
 
     const { nodes, links, simulation } = createSimulation(
       connectedServices,
@@ -212,7 +215,7 @@ class Topology extends React.Component {
     );
   }
 
-  getSvgSize() {
+  getContentSize() {
     const { parentId, width, height } = this.props;
     if (parentId && document.getElementById(parentId)) {
       const size = document.getElementById(parentId).getBoundingClientRect();
@@ -230,7 +233,7 @@ class Topology extends React.Component {
   }
 
   constrainNodePosition(x, y, nodeRect, children = false) {
-    const svgSize = this.getSvgSize();
+    const svgSize = this.getContentSize();
 
     /* const nodeRect = children
       ? Constants.nodeRectWithChildren
@@ -254,27 +257,22 @@ class Topology extends React.Component {
     };
   }
 
-  findNode(nodeId) {
-    return this.state.nodes.reduce(
+  findNode = nodeId =>
+    this.state.nodes.reduce(
       (acc, simNode, index) => (simNode.id === nodeId ? simNode : acc),
       {}
     );
-  }
 
   getConstrainedNodePosition(nodeId, nodeRect, children = false) {
     const node = this.findNode(nodeId);
     return this.constrainNodePosition(node.x, node.y, nodeRect, children);
   }
 
-  getNotConnectedNodePosition(nodeId) {
-    return this.state.notConnectedNodes
-      .filter(ncn => ncn.id === nodeId)
-      .shift();
-  }
+  getNotConnectedNodePosition = nodeId =>
+    this.state.notConnectedNodes.filter(ncn => ncn.id === nodeId).shift();
 
-  findNodeData(nodesData, nodeId) {
-    return nodesData.filter(nodeData => nodeData.id === nodeId).shift();
-  }
+  findNodeData = (nodesData, nodeId) =>
+    nodesData.filter(nodeData => nodeData.id === nodeId).shift();
 
   setDragInfo(dragging, nodeId = null, position = {}) {
     this.dragInfo = {
@@ -292,7 +290,7 @@ class Topology extends React.Component {
     const nodesData = services.map((service, index) => {
       const nodeRect = getNodeRect(service);
       const nodePosition =
-        service.connections.length === 0
+        (service.connections || []).length === 0
           ? this.getNotConnectedNodePosition(service.id)
           : this.getConstrainedNodePosition(
               service.id,
@@ -441,7 +439,7 @@ class Topology extends React.Component {
 
     return (
       <StyledSvg
-        size={this.getSvgSize()}
+        size={this.getContentSize()}
         onMouseMove={onDragMove}
         onTouchMove={onDragMove}
         onMouseUp={onDragEnd}
@@ -467,7 +465,73 @@ Topology.propTypes = {
   /** 
    * The real magic , this is where you pass all of the services you want to see shown
   */
-  services: PropTypes.array,
+  services: PropTypes.arrayOf(
+    PropTypes.shape({
+      /** 
+       * id of node
+      */
+      id: PropTypes.string.isRequired,
+      /** 
+       * name of the node
+      */
+      name: PropTypes.string.isRequired,
+      /** 
+       * How this node is doing
+       * ```js
+['active', 'running', 'failed', 'unknown']
+      * ```
+      */
+      status: PropTypes.oneOf(['active', 'running', 'failed', 'unknown']),
+      /** 
+       * id of the nodes this node is connected to
+      */
+      connections: PropTypes.array,
+      /** 
+       * instances inside this node
+       * ```js
+{
+  id: PropTypes.string.isRequired,
+  status: PropTypes.oneOf(['active', 'running', 'failed', 'unknown']),
+  healthy: PropTypes.string
+}
+      * ```
+      */
+      instances: PropTypes.arrayOf(instances),
+      /** 
+       * the status of the instances inside this node
+       * ```js
+{
+  count: PropTypes.number.isRequired,
+  status: PropTypes.oneOf(['active', 'running', 'failed', 'unknown']),
+  healthy: PropTypes.string
+}
+      * ```
+      */
+      instanceStatuses: PropTypes.arrayOf(instanceStatuses),
+      /** 
+       * Are the instances active ?
+      */
+      instancesActive: PropTypes.bool,
+      /** 
+       * The count of instances that are healthy
+       * ```js
+{
+  total: PropTypes.number, // Total instances
+  healthy: PropTypes.number
+}
+      * ```
+      */
+      instancesHealthy,
+      /** 
+       * The transitional status
+      */
+      transitionalStatus: PropTypes.bool,
+      /** 
+       * Should this use the reverse color scheme ?
+      */
+      reversed: PropTypes.bool
+    })
+  ),
   /** 
    * Width of the svg.
    * Needs to be a number and will always be converted into px

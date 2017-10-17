@@ -96,7 +96,7 @@ const calculateLineLayout = ({ source, target }) => {
 };
 
 const getStatusesLength = data =>
-  data.transitionalStatus ? 1 : data.instanceStatuses.length;
+  data.transitionalStatus ? 1 : (data.instanceStatuses || []).length;
 
 const getStatusesHeight = data => {
   const statuses = data.children

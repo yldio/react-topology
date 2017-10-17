@@ -29,12 +29,7 @@
   },
   "scripts": {
     "start": "styleguidist server",
-    "styleguide:build": "styleguidist build",
-    "compile-watch:es": "NODE_ENV=development babel src --out-dir dist/es --source-maps inline --watch",
-    "compile:es": "NODE_ENV=development babel src --out-dir dist/es --source-maps inline",
-    "compile:umd": "cross-env NODE_ENV=test babel src --out-dir dist/umd --source-maps inline",
-    "compile-watch:umd": "cross-env NODE_ENV=test babel src --out-dir dist/umd --source-maps inline --watch",
-    "build": "redrun -p compile:*",
+    "build": "styleguidist build",
     "lint": "eslint src",
     "jest": "jest --env=jsdom",
     "test": "run-s lint jest",
@@ -75,6 +70,7 @@
     "react-styleguidist": "^6.0.25",
     "react-test-renderer": "^16.0.0",
     "redrun": "^5.9.18",
+    "sinon": "^4.0.1",
     "style-loader": "^0.19.0",
     "stylelint": "^8.2.0",
     "stylelint-config-joyent-portal": "^2.0.1",
@@ -92,6 +88,10 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less|sass|scss|postcss)$": "identity-obj-proxy"
     },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
     "collectCoverage": true,
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

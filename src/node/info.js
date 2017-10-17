@@ -51,7 +51,7 @@ const GraphNodeInfo = ({ data, pos }) => {
       {status.toLowerCase()}
     </GraphText>
   ) : (
-    instanceStatuses.map((instanceStatus, index) => (
+    (instanceStatuses || []).map((instanceStatus, index) => (
       <GraphText
         key={index}
         index={index}
@@ -83,7 +83,7 @@ const GraphNodeInfo = ({ data, pos }) => {
         )}
       </g>
       <GraphText x={54} y={14} consul={reverse} active={instancesActive}>
-        {`${instances.length} inst.`}
+        {`${(instances || instanceStatuses || []).length} inst.`}
       </GraphText>
       <g transform={'translate(54, 36)'} height="200">
         {statuses}

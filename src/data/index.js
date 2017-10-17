@@ -1,29 +1,28 @@
 export const graphql = [
   {
-    index: 0,
     id: 'af6a5cd2-291f-490b-bf3b-141b010635db',
-    name: 'frontend',
-    status: 'ACTIVE',
+    name: 'Frontend really long frontend man',
+    status: 'active',
     connections: ['aea06a05-830a-46d3-bdc1-9dcba97303de'],
     instances: [
       {
         id: 'f1fb3c1d-9e0e-4538-b2ad-1124bce2459e',
-        status: 'RUNNING',
-        healthy: 'UNKNOWN'
+        status: 'running',
+        healthy: 'unknown'
       },
       {
         id: 'c5c7ae33-cfe1-43cc-9e9b-6f453de3888d',
-        status: 'FAILED',
-        healthy: 'UNAVAILABLE'
+        status: 'failed',
+        healthy: 'unavailable'
       }
     ],
     instanceStatuses: [
       {
-        status: 'RUNNING',
+        status: 'running',
         count: 1
       },
       {
-        status: 'FAILED',
+        status: 'failed',
         count: 1
       }
     ],
@@ -36,26 +35,25 @@ export const graphql = [
     reversed: true
   },
   {
-    index: 1,
     id: 'af6a5cd2-291f-490b-bf3b-asdasads',
     name: 'GraphQL',
-    status: 'ACTIVE',
+    status: 'active',
     connections: ['af6a5cd2-291f-490b-bf3b-141b010635db'],
     instances: [
       {
         id: 'f1fb3c1d-9e0e-4538-b2ad-1124bce2459e',
-        status: 'RUNNING',
-        healthy: 'UNKNOWN'
+        status: 'running',
+        healthy: 'unknown'
       },
       {
         id: 'c5c7ae33-cfe1-43cc-9e9b-6f453de3888d',
-        status: 'FAILED',
-        healthy: 'UNAVAILABLE'
+        status: 'failed',
+        healthy: 'unavailable'
       }
     ],
     instanceStatuses: [
       {
-        status: 'RUNNING',
+        status: 'running',
         count: 2
       }
     ],
@@ -65,42 +63,41 @@ export const graphql = [
       healthy: 2
     },
     transitionalStatus: false,
-    isConsul: true
+    reversed: true
   },
   {
-    index: 2,
     id: 'af6a5cd2-291f-490b-bf3b-141b010635dbs',
     name: 'API',
-    status: 'ACTIVE',
+    status: 'active',
     connections: ['af6a5cd2-291f-490b-bf3b-asdasads'],
     instances: [
       {
         id: 'f1fb3c1d-9e0e-4538-b2ad-1124bce2459e',
-        status: 'RUNNING',
-        healthy: 'UNKNOWN'
+        status: 'running',
+        healthy: 'unknown'
       },
       {
         id: 'c5c7ae33-cfe1-43cc-9e9b-6f453de3888d',
-        status: 'FAILED',
-        healthy: 'UNAVAILABLE'
+        status: 'failed',
+        healthy: 'unavailable'
       },
       {
         id: 'c5c7ae33-cfe1-43cc-9e9b-6f453de3888d',
-        status: 'FAILED',
-        healthy: 'UNAVAILABLE'
+        status: 'failed',
+        healthy: 'unavailable'
       }
     ],
     instanceStatuses: [
       {
-        status: 'RUNNING',
+        status: 'running',
         count: 1
       },
       {
-        status: 'FAILED',
+        status: 'failed',
         count: 1
       },
       {
-        status: 'UNKNOWN',
+        status: 'unknown',
         count: 1
       }
     ],
@@ -110,6 +107,11 @@ export const graphql = [
       healthy: 2
     },
     transitionalStatus: false,
-    isConsul: false
+    reversed: false
   }
 ];
+
+
+export const one = {
+  name: 'stuff'
+}

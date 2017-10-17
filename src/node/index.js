@@ -30,7 +30,7 @@ const GraphNode = ({
   let x = data.x;
   let y = data.y;
 
-  if (connections.length !== 0) {
+  if ((connections || []).length !== 0) {
     x = data.x + left;
     y = data.y + top;
   }
@@ -41,7 +41,7 @@ const GraphNode = ({
       y: data.y + Constants.buttonRect.y + Constants.buttonRect.height
     };
 
-    if (connections.length !== 0) {
+    if ((connections || []).length !== 0) {
       tooltipPosition.x += left;
       tooltipPosition.y += top;
     }
@@ -64,7 +64,7 @@ const GraphNode = ({
   };
 
   const nodeRectEvents =
-    connections.length === 0
+    (connections || []).length === 0
       ? {}
       : {
           onMouseDown: onStart,
@@ -119,7 +119,7 @@ const GraphNode = ({
         height={height}
         consul={reverse}
         active={instancesActive}
-        connected={connections.length !== 0}
+        connected={(connections || []).length !== 0}
         nodeColor={nodeColor}
         nodeReversedColor={nodeReversedColor}
         {...nodeRectEvents}

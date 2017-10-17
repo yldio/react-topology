@@ -52,8 +52,6 @@ export const GraphShadowRect = styled.rect`
 `;
 
 export const GraphTitle = styled.text`
-  font-weight: normal;
-
   font-size: 16px;
   font-weight: 600;
   fill: ${theme.white};
@@ -71,7 +69,9 @@ export const GraphTitle = styled.text`
 
 export const GraphSubtitle = styled.text`
   font-weight: normal;
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 12px;
   font-weight: 600;
   fill: ${theme.white};

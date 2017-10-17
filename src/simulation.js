@@ -69,48 +69,4 @@ const createSimulation = (services, svgSize, animationTicks = 0) => {
   };
 };
 
-// eslint-disable-next-line
-const updateSimulation = (
-  simulation,
-  services,
-  simNodes,
-  simLinks,
-  svgSize,
-  onTick,
-  onEnd
-) => {
-  const nodes = services.map((service, index) => {
-    const simNode = simNodes.reduce((acc, n, i) => {
-      return service.id === n.id ? n : acc;
-    }, null);
-
-    return simNode
-      ? {
-          id: simNode.id,
-          index
-        }
-      : {
-          id: service.id,
-          index
-        };
-  });
-
-  const links = createLinks(services);
-
-  const { width, height } = svgSize;
-
-  const nodeRadius = rectRadius(Constants.nodeSizeWithChildren);
-
-  return {
-    simulation: forceSimulation(nodes)
-      .force('link', forceLink(links).id(d => d.id))
-      .force('collide', forceCollide(nodeRadius))
-      .force('center', forceCenter(width / 2, height / 2))
-      .on('tick', onTick)
-      .on('end', onEnd),
-    nodes,
-    links
-  };
-};
-
-export { createSimulation, updateSimulation };
+export default createSimulation;

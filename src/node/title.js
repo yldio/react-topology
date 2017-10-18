@@ -5,7 +5,7 @@ import { GraphTitle } from './shapes';
 
 const GraphNodeTitle = ({
   data,
-  onNodeTitleClick,
+  onTitleClick,
   primaryColor,
   secondaryColor
 }) => (
@@ -13,8 +13,8 @@ const GraphNodeTitle = ({
     <GraphTitle
       x={Constants.paddingLeft}
       y={30}
-      onClick={onNodeTitleClick}
-      onKeyDown={onNodeTitleClick}
+      onClick={onTitleClick}
+      onKeyDown={onTitleClick}
       consul={data.isConsul || data.reversed}
       active={data.instancesActive}
       primaryColor={primaryColor}
@@ -31,7 +31,7 @@ const GraphNodeTitle = ({
 
 GraphNodeTitle.propTypes = {
   data: PropTypes.object.isRequired,
-  onNodeTitleClick: PropTypes.func
+  onTitleClick: PropTypes.func
 };
 
 export default GraphNodeTitle;

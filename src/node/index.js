@@ -13,7 +13,7 @@ const GraphNode = ({
   data,
   index,
   onDragStart,
-  onNodeTitleClick,
+  onTitleClick,
   onQuickActions
 }) => {
   const { left, top, width, height } = data.nodeRect;
@@ -57,7 +57,7 @@ const GraphNode = ({
     if (onQuickActions) onQuickActions(evt, d);
   };
 
-  const onTitleClick = evt => onNodeTitleClick(evt, { service: data });
+  const handleTitleClick = evt => onTitleClick(evt, { service: data });
   const onStart = evt => {
     evt.preventDefault();
     onDragStart(evt, id);
@@ -126,7 +126,7 @@ const GraphNode = ({
       />
       <GraphNodeTitle
         data={data}
-        onNodeTitleClick={onTitleClick}
+        onTitleClick={handleTitleClick}
         primaryColor={primaryColor}
         secondaryColor={secondaryColor}
       />
@@ -147,7 +147,7 @@ GraphNode.propTypes = {
   data: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
   onDragStart: PropTypes.func,
-  onNodeTitleClick: PropTypes.func,
+  onTitleClick: PropTypes.func,
   onQuickActions: PropTypes.func,
   /** 
    * Color of each node

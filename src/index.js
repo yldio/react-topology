@@ -295,7 +295,7 @@ class Topology extends React.Component {
   }
 
   render() {
-    const { onQuickActionsClick, onNodeTitleClick } = this.props;
+    const { onQuickActionsClick, onTitleClick } = this.props;
 
     const { nodes, links, services } = this.state;
 
@@ -393,7 +393,7 @@ class Topology extends React.Component {
           data={n}
           index={index}
           onDragStart={onDragStart}
-          onNodeTitleClick={onNodeTitleClick}
+          onTitleClick={onTitleClick}
           onQuickActions={onQuickActionsClick}
         />
       );
@@ -473,7 +473,7 @@ Topology.propTypes = {
   /** What should happen when the quick actions are clicked */
   onQuickActionsClick: PropTypes.func,
   /** What should happen when the title of any node is clicked */
-  onNodeTitleClick: PropTypes.func,
+  onTitleClick: PropTypes.func,
   /** 
    * The real magic , this is where you pass all of the services you want to see shown
   */
@@ -570,7 +570,7 @@ Topology.defaultProps = {
   width: 600,
   height: 600,
   onQuickActionsClick: () => {},
-  onNodeTitleClick: () => {},
+  onTitleClick: () => {},
   services: [],
   primaryColor: '#343434',
   secondaryColor: '#FFF'

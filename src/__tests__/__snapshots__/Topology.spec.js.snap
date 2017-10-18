@@ -16167,7 +16167,7 @@ exports[`Renders <Topology /> with mapped options 1`] = `
 >
   <g>
     <g
-      transform="translate(83.57563533250558, 182.9879529463952)"
+      transform="translate(242.59972928772652, 396.79419736077494)"
     >
       <rect
         class="sc-EHOje iqgaML"
@@ -16190,7 +16190,7 @@ exports[`Renders <Topology /> with mapped options 1`] = `
           x="12"
           y="30"
         >
-          Frontend really long frontend man
+          Frontend
         </text>
         <clipPath
           id="clip1"
@@ -16327,7 +16327,7 @@ exports[`Renders <Topology /> with mapped options 1`] = `
       </g>
     </g>
     <g
-      transform="translate(335.57755900824276, 181.51294748960126)"
+      transform="translate(70.89601233268473, 212.33593022372202)"
     >
       <rect
         class="sc-EHOje iqgaML"
@@ -16481,7 +16481,7 @@ exports[`Renders <Topology /> with mapped options 1`] = `
       </g>
     </g>
     <g
-      transform="translate(210.86399952003126, 400.48903769074)"
+      transform="translate(316.48577740617316, 155.85879077307413)"
     >
       <rect
         class="sc-EHOje iOzugQ"
@@ -16649,22 +16649,29 @@ exports[`Renders <Topology /> with mapped options 1`] = `
   <g>
     <line
       class="sc-jTzLTM idusFa"
-      x1="335.57755900824276"
-      x2="263.5756353325056"
-      y1="226.51294748960126"
-      y2="227.9879529463952"
+      x1="244.59972928772652"
+      x2="248.89601233268473"
+      y1="398.79419736077494"
+      y2="324.335930223722"
     />
     <line
       class="sc-jTzLTM idusFa"
-      x1="388.86399952003126"
-      x2="425.57755900824276"
-      y1="402.48903769074"
-      y2="295.5129474896013"
+      x1="250.89601233268473"
+      x2="316.48577740617316"
+      y1="257.335930223722"
+      y2="200.85879077307413"
+    />
+    <line
+      class="sc-jTzLTM idusFa"
+      x1="316.48577740617316"
+      x2="250.89601233268473"
+      y1="200.85879077307413"
+      y2="257.335930223722"
     />
   </g>
   <g>
     <g
-      transform="translate(263.5756353325056, 227.9879529463952) rotate(178.8264234618929)"
+      transform="translate(248.89601233268473, 324.335930223722) rotate(273.30233641770246)"
     >
       <circle
         class="sc-fjdhpX eCDqlH"
@@ -16688,7 +16695,31 @@ exports[`Renders <Topology /> with mapped options 1`] = `
       />
     </g>
     <g
-      transform="translate(425.57755900824276, 295.5129474896013) rotate(288.9419164207662)"
+      transform="translate(316.48577740617316, 200.85879077307413) rotate(319.2693660535669)"
+    >
+      <circle
+        class="sc-fjdhpX eCDqlH"
+        cx="0"
+        cy="0"
+        r="9"
+      />
+      <line
+        class="sc-jzJRlG ilIimZ"
+        x1="-1"
+        x2="2"
+        y1="-3"
+        y2="0"
+      />
+      <line
+        class="sc-jzJRlG ilIimZ"
+        x1="-1"
+        x2="2"
+        y1="3"
+        y2="0"
+      />
+    </g>
+    <g
+      transform="translate(250.89601233268473, 257.335930223722) rotate(139.2693660535669)"
     >
       <circle
         class="sc-fjdhpX eCDqlH"

@@ -499,17 +499,6 @@ Topology.propTypes = {
       */
       connections: PropTypes.array,
       /** 
-       * instances inside this node
-       * ```js
-{
-  id: PropTypes.string.isRequired,
-  status: PropTypes.oneOf(['active', 'running', 'failed', 'unknown']),
-  healthy: PropTypes.string
-}
-      * ```
-      */
-      instances: PropTypes.arrayOf(instances),
-      /** 
        * the status of the instances inside this node
        * ```js
 {
@@ -563,7 +552,12 @@ Topology.propTypes = {
   /** 
    * Color of each node when reversed
   */
-  secondaryColor: PropTypes.string
+  secondaryColor: PropTypes.string,
+  /** 
+   * If your object is different from ours you can map your properties to match what the component understands.
+   * If you have `nodes` instead of `instanceStatuses` you can pass `map={{instanceStatuses: 'nodes'}}`
+  */
+  map: PropTypes.shape
 };
 
 Topology.defaultProps = {

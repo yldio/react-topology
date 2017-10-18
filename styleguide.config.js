@@ -4,7 +4,15 @@ const dnHandler = require('react-docgen-displayname-handler');
 const path = require('path');
 
 module.exports = {
-  components: 'src/index.js',
+    sections: [
+    {
+      content: 'README.md'
+    },
+    {
+      name: 'React Topology',
+      components: './src/index.js'
+    },
+  ],
   defaultExample: true,
   title: 'React Topology',
   showUsage: true,

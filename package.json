@@ -2,7 +2,8 @@
   "name": "react-topology",
   "version": "0.1.0",
   "author": "YLD",
-  "license": "MIT",
+  "main": "src/index.js",
+  "license": "MPL-2.0",
   "dependencies": {
     "babel-plugin-transform-react-remove-prop-types": "^0.4.10",
     "chart.js": "^2.7.0",

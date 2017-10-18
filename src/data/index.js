@@ -1,9 +1,9 @@
 export const graphql = [
   {
-    id: 'af6a5cd2-291f-490b-bf3b-141b010635db',
-    name: 'Frontend really long frontend man',
+    id: 'frontend-app',
+    name: 'Frontend',
     status: 'active',
-    connections: ['aea06a05-830a-46d3-bdc1-9dcba97303de'],
+    connections: ['graphql-server'],
     nodes: [
       {
         status: 'running',
@@ -23,10 +23,10 @@ export const graphql = [
     reversed: true
   },
   {
-    id: 'af6a5cd2-291f-490b-bf3b-asdasads',
+    id: 'graphql-server',
     name: 'GraphQL',
     status: 'active',
-    connections: ['af6a5cd2-291f-490b-bf3b-141b010635db'],
+    connections: ['api-server'],
     nodes: [
       {
         status: 'running',
@@ -42,10 +42,10 @@ export const graphql = [
     reversed: true
   },
   {
-    id: 'af6a5cd2-291f-490b-bf3b-141b010635dbs',
+    id: 'api-server',
     name: 'API',
     status: 'active',
-    connections: ['af6a5cd2-291f-490b-bf3b-asdasads'],
+    connections: ['graphql-server'],
     nodes: [
       {
         status: 'running',
@@ -142,7 +142,6 @@ export const graphqlJoyent = [
   }
 ];
 
-
 export const one = {
   name: 'stuff'
-}
+};

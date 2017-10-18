@@ -30,9 +30,10 @@
   "scripts": {
     "start": "styleguidist server",
     "build": "styleguidist build",
-    "lint": "eslint src",
+    "lint:js": "eslint src",
     "jest": "jest --env=jsdom",
-    "test": "run-s lint jest",
+    "test": "run-s lint:js lint:css jest",
+    "lint:css": "stylelint './src/**/*.js'",
     "precommit": "lint-staged"
   },
   "devDependencies": {
@@ -81,6 +82,7 @@
     "src/**/*.js": [
       "jest --bail --findRelatedTests",
       "eslint --fix",
+      "stylelint",
       "git add -A"
     ]
   },

@@ -8,8 +8,8 @@ import GraphNodeContent from './content';
 import { GraphNodeRect, GraphShadowRect } from './shapes';
 
 const GraphNode = ({
-  nodeColor,
-  nodeReversedColor,
+  primaryColor,
+  secondaryColor,
   data,
   index,
   onDragStart,
@@ -81,8 +81,8 @@ const GraphNode = ({
             data={d}
             index={i}
             y={acc.y}
-            nodeColor={nodeColor}
-            nodeReversedColor={nodeReversedColor}
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
           />
         );
         acc.y += getContentRect(d, true).height;
@@ -92,8 +92,8 @@ const GraphNode = ({
     ).children
   ) : (
     <GraphNodeContent
-      nodeColor={nodeColor}
-      nodeReversedColor={nodeReversedColor}
+      primaryColor={primaryColor}
+      secondaryColor={secondaryColor}
       data={data}
     />
   );
@@ -120,16 +120,23 @@ const GraphNode = ({
         consul={reverse}
         active={instancesActive}
         connected={(connections || []).length !== 0}
-        nodeColor={nodeColor}
-        nodeReversedColor={nodeReversedColor}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
         {...nodeRectEvents}
       />
-      <GraphNodeTitle data={data} onNodeTitleClick={onTitleClick} />
+      <GraphNodeTitle
+        data={data}
+        onNodeTitleClick={onTitleClick}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
+      />
       <GraphNodeButton
         index={index}
         onButtonClick={onButtonClick}
         isConsul={reverse}
         instancesActive={instancesActive}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
       />
       {nodeContent}
     </g>
@@ -145,11 +152,11 @@ GraphNode.propTypes = {
   /** 
    * Color of each node
   */
-  nodeColor: PropTypes.string,
+  primaryColor: PropTypes.string,
   /** 
    * Color of each node when reversed
   */
-  nodeReversedColor: PropTypes.string
+  secondaryColor: PropTypes.string
 };
 
 export default GraphNode;

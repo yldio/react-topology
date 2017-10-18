@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import { theme } from 'joyent-ui-toolkit'
+import { theme } from 'joyent-ui-toolkit';
 
 export const GraphLinkLine = styled.line`
-  stroke: ${theme.secondaryActive};
+  stroke: #c0c0c0;
   stroke-width: 1.5;
 `;
 
 export const GraphLinkCircle = styled.circle`
-  stroke: ${theme.secondaryActive};
+  stroke: #343434;
   fill: ${theme.secondary};
   stroke-width: 1.5;
 `;

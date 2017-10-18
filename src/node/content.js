@@ -9,8 +9,8 @@ const GraphNodeContent = ({
   data,
   y = Constants.contentRect.y,
   index = 0,
-  nodeColor,
-  nodeReversedColor
+  primaryColor,
+  secondaryColor
 }) => {
   const { x, width } = Constants.contentRect;
   const reverse = data.isConsul || data.reversed;
@@ -27,8 +27,8 @@ const GraphNodeContent = ({
       {...Constants.subtitlePosition}
       consul={reverse}
       active={data.instancesActive}
-      nodeColor={nodeColor}
-      nodeReversedColor={nodeReversedColor}
+      primaryColor={primaryColor}
+      secondaryColor={secondaryColor}
     >
       {data.name}
     </GraphSubtitle>
@@ -38,8 +38,8 @@ const GraphNodeContent = ({
     <GraphNodeInfo
       data={data}
       pos={nodeInfoPos}
-      nodeColor={nodeColor}
-      nodeReversedColor={nodeReversedColor}
+      primaryColor={primaryColor}
+      secondaryColor={secondaryColor}
     />
   );
   return (
@@ -51,8 +51,8 @@ const GraphNodeContent = ({
         y2={0}
         consul={reverse}
         active={data.instancesActive}
-        nodeColor={nodeColor}
-        nodeReversedColor={nodeReversedColor}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
       />
       {nodeSubtitle}
       {nodeInfo}

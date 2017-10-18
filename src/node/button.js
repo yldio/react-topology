@@ -8,7 +8,9 @@ const NodeButton = ({
   index,
   isConsul,
   reversed,
-  instancesActive
+  instancesActive,
+  primaryColor,
+  secondaryColor
 }) => {
   const { x, y, width, height } = Constants.buttonRect;
   const reverse = isConsul || reversed;
@@ -28,6 +30,8 @@ const NodeButton = ({
       r={2}
       consul={reverse}
       active={instancesActive}
+      primaryColor={primaryColor}
+      secondaryColor={secondaryColor}
     />
   ));
 
@@ -39,6 +43,8 @@ const NodeButton = ({
         x2={0}
         y2={height}
         consul={reverse}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
         active={instancesActive}
       />
       {buttonCircles}
@@ -48,7 +54,8 @@ const NodeButton = ({
         onKeyDown={onButtonClick}
         width={width}
         role="button"
-        tabIndex={100 + index}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
       />
     </g>
   );

@@ -182,11 +182,23 @@ class Topology extends React.Component {
     // resize should just rejig the positions
   }
 
+  renameProperty = (service, map) =>
+    Object.assign(
+      ...Object.keys(map).map(k => ({
+        ...service,
+        [k]: service[map[k]]
+      }))
+    );
+
   create(props) {
-    // other updates should also just update the services rather than recreate the simulation
-    const services = Array.isArray(props.services)
+    let services = Array.isArray(props.services)
       ? props.services.sort()
       : [props.services];
+    if (props.map) {
+      services = props.services.map(service =>
+        this.renameProperty(service, props.map)
+      );
+    }
     const connectedServices = services.filter(
       service => (service.connections || []).length !== 0
     );
@@ -372,11 +384,11 @@ class Topology extends React.Component {
     };
 
     const renderedNode = (n, index) => {
-      const { nodeColor, nodeReversedColor } = this.props;
+      const { primaryColor, secondaryColor } = this.props;
       return (
         <TopologyNode
-          nodeColor={nodeColor}
-          nodeReversedColor={nodeReversedColor}
+          primaryColor={primaryColor}
+          secondaryColor={secondaryColor}
           key={index}
           data={n}
           index={index}
@@ -536,22 +548,22 @@ Topology.propTypes = {
    * Width of the svg.
    * Needs to be a number and will always be converted into px
   */
-  width: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** 
    * Height of the svg.
    * Needs to be a number and will always be converted into px
   */
-  height: PropTypes.string,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** If you have a parent already with a width and height you can pass the id and that will be used */
   parentId: PropTypes.string,
   /** 
    * Color of each node
   */
-  nodeColor: PropTypes.string,
+  primaryColor: PropTypes.string,
   /** 
    * Color of each node when reversed
   */
-  nodeReversedColor: PropTypes.string
+  secondaryColor: PropTypes.string
 };
 
 Topology.defaultProps = {
@@ -560,8 +572,8 @@ Topology.defaultProps = {
   onQuickActionsClick: () => {},
   onNodeTitleClick: () => {},
   services: [],
-  nodeColor: '#343434',
-  nodeReversedColor: '#FFF'
+  primaryColor: '#343434',
+  secondaryColor: '#FFF'
 };
 
 export default Topology;

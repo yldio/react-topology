@@ -31,7 +31,7 @@ const StyledHealthyIcon = styled(HealthyIcon)`
   `};
 `;
 
-const GraphNodeInfo = ({ data, pos }) => {
+const GraphNodeInfo = ({ data, pos, primaryColor, secondaryColor }) => {
   const {
     instances,
     instanceStatuses,
@@ -47,12 +47,19 @@ const GraphNodeInfo = ({ data, pos }) => {
   const { x, y } = pos;
 
   const statuses = transitionalStatus ? (
-    <GraphText consul={reverse} active={instancesActive}>
+    <GraphText
+      primaryColor={primaryColor}
+      secondaryColor={secondaryColor}
+      consul={reverse}
+      active={instancesActive}
+    >
       {status.toLowerCase()}
     </GraphText>
   ) : (
     (instanceStatuses || []).map((instanceStatus, index) => (
       <GraphText
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
         key={index}
         index={index}
         consul={reverse}
@@ -82,7 +89,14 @@ const GraphNodeInfo = ({ data, pos }) => {
           <InstancesIconLight />
         )}
       </g>
-      <GraphText x={54} y={14} consul={reverse} active={instancesActive}>
+      <GraphText
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
+        x={54}
+        y={14}
+        consul={reverse}
+        active={instancesActive}
+      >
         {`${(instances || instanceStatuses || []).length} inst.`}
       </GraphText>
       <g transform={'translate(54, 36)'} height="200">

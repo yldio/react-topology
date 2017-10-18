@@ -3,13 +3,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { mount, shallow, render } from 'enzyme';
 import { graphql, one } from '../data';
 import Topology from '../';
-import sinon from 'sinon';
 
 Enzyme.configure({ adapter: new Adapter() });
-const willMount = sinon.spy();
-const didMount = sinon.spy();
-const willUnmount = sinon.spy();
-
 it('Mounts <Topology /> without throwing', () => {
   const tree = mount(<Topology services={graphql} />);
   expect(tree).toMatchSnapshot();
@@ -38,7 +33,7 @@ it('Calls Quick Options', () => {
 
 it('mounts <Topology /> width colors', () => {
   const tree = mount(
-    <Topology services={graphql} nodeColor="red" nodeReversedColor="blue" />
+    <Topology services={graphql} primaryColor="red" secondaryColor="blue" />
   );
   expect(tree).toMatchSnapshot();
 });

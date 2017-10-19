@@ -6,11 +6,11 @@ import differenceBy from 'lodash.differenceby';
 
 import Constants from './constants';
 import createSimulation from './simulation';
-import TopologyNode from './node';
-import TopologyLink from './link';
+import TopologyNode from './node/index';
+import TopologyLink from './link/index';
 import TopologyLinkArrow from './link/arrow';
 import { getNodeRect, calculateLineLayout } from './functions';
-import { instanceStatuses, instances, instancesHealthy } from './prop-types';
+import { instanceStatuses, instancesHealthy } from './prop-types';
 
 const StyledSvg = Svg.extend`
   width: ${props => props.size.width}px;
@@ -474,31 +474,31 @@ Topology.propTypes = {
   onQuickActionsClick: PropTypes.func,
   /** What should happen when the title of any node is clicked */
   onTitleClick: PropTypes.func,
-  /** 
+  /**
    * The real magic , this is where you pass all of the services you want to see shown
   */
   services: PropTypes.arrayOf(
     PropTypes.shape({
-      /** 
+      /**
        * id of node
       */
       id: PropTypes.string.isRequired,
-      /** 
+      /**
        * name of the node
       */
       name: PropTypes.string.isRequired,
-      /** 
+      /**
        * How this node is doing
        * ```js
 ['active', 'running', 'failed', 'unknown']
       * ```
       */
       status: PropTypes.oneOf(['active', 'running', 'failed', 'unknown']),
-      /** 
+      /**
        * id of the nodes this node is connected to
       */
       connections: PropTypes.array,
-      /** 
+      /**
        * the status of the instances inside this node
        * ```js
 {
@@ -509,11 +509,11 @@ Topology.propTypes = {
       * ```
       */
       instanceStatuses: PropTypes.arrayOf(instanceStatuses),
-      /** 
+      /**
        * Are the instances active ?
       */
       instancesActive: PropTypes.bool,
-      /** 
+      /**
        * The count of instances that are healthy
        * ```js
 {
@@ -523,37 +523,37 @@ Topology.propTypes = {
       * ```
       */
       instancesHealthy,
-      /** 
+      /**
        * The transitional status
       */
       transitionalStatus: PropTypes.bool,
-      /** 
+      /**
        * Should this use the reverse color scheme ?
       */
       reversed: PropTypes.bool
     })
   ),
-  /** 
+  /**
    * Width of the svg.
    * Needs to be a number and will always be converted into px
   */
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** 
+  /**
    * Height of the svg.
    * Needs to be a number and will always be converted into px
   */
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** If you have a parent already with a width and height you can pass the id and that will be used */
   parentId: PropTypes.string,
-  /** 
+  /**
    * Color of each node
   */
   primaryColor: PropTypes.string,
-  /** 
+  /**
    * Color of each node when reversed
   */
   secondaryColor: PropTypes.string,
-  /** 
+  /**
    * If your object is different from ours you can map your properties to match what the component understands.
    * If you have `nodes` instead of `instanceStatuses` you can pass `map={{instanceStatuses: 'nodes'}}`
   */
@@ -572,5 +572,5 @@ Topology.defaultProps = {
 
 export default Topology;
 
-export { default as TopologyNode } from './node';
-export { default as TopologyLink } from './link';
+export { default as TopologyNode } from './node/index';
+export { default as TopologyLink } from './link/index';

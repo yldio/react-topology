@@ -1,10 +1,10 @@
 {
-  "presets": "joyent-portal",
-    "env": {
-      "production": {
-        "plugins": [
-          "transform-react-remove-prop-types"
-        ]
-      }
+  "presets": ["joyent-portal"],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-react-remove-prop-types"
+      ]
     }
+  }
 }

@@ -1,6 +1,11 @@
 ```
 const data = require('./data/index.js');
-<Topology services={data.graphql} map={{instanceStatuses: 'nodes'}}/>
+const { ThemeProvider } = require('styled-components');
+const theme = require('joyent-ui-toolkit/dist/es/theme').default;
+
+<ThemeProvider theme={theme}>
+  <Topology services={data.graphql} map={{instanceStatuses: 'nodes'}}/>
+</ThemeProvider>
 ```
 
 ### A single instance:
@@ -32,5 +37,3 @@ const data = {
 
 <Topology services={data} height="200"/>
 ```
-
-

@@ -1,7 +1,6 @@
 ![react-topology logo](https://i.imgur.com/T1uJKdx.png)
 
 [![Build Status](https://travis-ci.org/yldio/react-topology.svg?branch=master)](https://travis-ci.org/yldio/react-topology)
-[![Greenkeeper badge](https://badges.greenkeeper.io/yldio/react-topology.svg)](https://greenkeeper.io/)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 >  topology is the arrangement of the various elements (links, nodes, etc.) of a communication network.

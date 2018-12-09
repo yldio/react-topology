@@ -4,30 +4,28 @@ import is, { isNot } from 'styled-is';
 import PropTypes from 'prop-types';
 import { Point } from '../prop-types';
 import { GraphText } from './shapes';
-import {
-  HealthyIcon,
-  theme,
-  InstancesIcon,
-  InstancesIconLight
-} from 'joyent-ui-toolkit';
+
+import HealthyIcon from 'joyent-ui-toolkit/dist/umd/icons/healthy'
+import InstancesIconLight from 'joyent-ui-toolkit/dist/umd/icons/instances-light'
+import InstancesIcon from 'joyent-ui-toolkit/dist/umd/icons/instances'
 
 const StyledInstancesIcon = styled(InstancesIcon)`
-  fill: ${theme.secondary};
+  fill: ${props => props.theme.secondary};
 
   ${isNot('active')`
-    fill: ${theme.secondary};
+    fill: ${props => props.theme.secondary};
   `};
 `;
 
 const StyledHealthyIcon = styled(HealthyIcon)`
-  fill: ${theme.orange};
+  fill: ${props => props.theme.orange};
 
   ${is('healthy')`
-    fill: ${theme.green};
+    fill: ${props => props.theme.green};
   `};
 
   ${isNot('healthy')`
-    fill: ${theme.orange};
+    fill: ${props => props.theme.orange};
   `};
 `;
 
@@ -42,6 +40,7 @@ const GraphNodeInfo = ({ data, pos, primaryColor, secondaryColor }) => {
     isConsul,
     reversed
   } = data;
+
   const reverse = isConsul || reversed;
 
   const { x, y } = pos;

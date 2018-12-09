@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from 'joyent-ui-toolkit';
 
 export const GraphLinkLine = styled.line`
   stroke: #c0c0c0;
@@ -8,12 +7,12 @@ export const GraphLinkLine = styled.line`
 
 export const GraphLinkCircle = styled.circle`
   stroke: #343434;
-  fill: ${theme.secondary};
+  fill: ${props => props.theme.secondary};
   stroke-width: 1.5;
 `;
 
 export const GraphLinkArrowLine = styled.line`
-  stroke: ${theme.white};
+  stroke: ${props => props.theme.white};
   stroke-width: 2;
   stroke-linecap: round;
 `;

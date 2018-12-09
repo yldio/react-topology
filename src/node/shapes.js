@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import is, { isNot } from 'styled-is';
-import { theme } from 'joyent-ui-toolkit';
 import { darken, lighten } from 'polished';
 
 export const GraphLine = styled.line`
@@ -121,5 +120,5 @@ export const GraphButtonCircle = styled.circle`
 `;
 
 export const GraphHealthyCircle = styled.circle`
-  fill: ${theme.green};
+  fill: ${props => props.theme.green};
 `;
